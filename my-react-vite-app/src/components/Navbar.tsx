@@ -28,16 +28,12 @@ const Navbar: React.FC = () => {
           <li>
             <a href="#" className="text-gray-800 hover:text-blue-600 font-medium transition-colors block py-2">Home</a>
           </li>
-          <li
-            className="relative group"
-            onMouseEnter={() => window.innerWidth >= 768 && setServicesOpen(true)}
-            onMouseLeave={() => window.innerWidth >= 768 && setServicesOpen(false)}
-          >
+          {/* Our Services Dropdown */}
+          <li className="relative group">
             <button
               className="text-gray-800 hover:text-blue-600 font-medium transition-colors block py-2 w-full text-left flex items-center"
-              onClick={() => setServicesOpen(!servicesOpen)}
               aria-haspopup="true"
-              aria-expanded={servicesOpen}
+              aria-expanded="false"
               type="button"
             >
               Our Services
@@ -45,20 +41,69 @@ const Navbar: React.FC = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <ul
-              className={`bg-white rounded shadow-lg absolute left-0 w-48 mt-2 z-30
-                hidden group-hover:block
-                ${servicesOpen ? 'block' : ''}
-              `}
-            >
-              <li>
-                <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700">Hotels</a>
+            <ul className="bg-white rounded shadow-lg absolute left-0 w-48 mt-2 z-30 hidden group-hover:block">
+              {/* Hotels with nested dropdown */}
+              <li className="relative">
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700 flex items-center justify-between peer"
+                >
+                  Hotels
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <ul className="bg-white rounded shadow-lg absolute left-full top-0 w-48 mt-0 ml-1 z-40 hidden peer-hover:block hover:block">
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Luxury Hotels</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Budget Hotels</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Boutique Hotels</a>
+                  </li>
+                </ul>
               </li>
-              <li>
-                <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700">Guest Houses</a>
+              {/* Guest Houses with nested dropdown */}
+              <li className="relative">
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700 flex items-center justify-between peer"
+                >
+                  Guest Houses
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <ul className="bg-white rounded shadow-lg absolute left-full top-0 w-48 mt-0 ml-1 z-40 hidden peer-hover:block hover:block">
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Family Guest Houses</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Heritage Guest Houses</a>
+                  </li>
+                </ul>
               </li>
-              <li>
-                <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700">Service Apartments</a>
+              {/* Service Apartments with nested dropdown */}
+              <li className="relative">
+                <a
+                  href="#"
+                  className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700 flex items-center justify-between peer"
+                >
+                  Service Apartments
+                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <ul className="bg-white rounded shadow-lg absolute left-full top-0 w-48 mt-0 ml-1 z-40 hidden peer-hover:block hover:block">
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Short Stay</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-50">Long Stay</a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </li>
@@ -72,16 +117,11 @@ const Navbar: React.FC = () => {
             <a href="#" className="text-gray-800 hover:text-blue-600 font-medium transition-colors block py-2">Register</a>
           </li>
           {/* Add your Place Dropdown */}
-          <li
-            className="relative group"
-            onMouseEnter={() => window.innerWidth >= 768 && setAddPlaceOpen(true)}
-            onMouseLeave={() => window.innerWidth >= 768 && setAddPlaceOpen(false)}
-          >
+          <li className="relative group">
             <button
               className="text-gray-800 hover:text-blue-600 font-medium transition-colors block py-2 w-full text-left flex items-center"
-              onClick={() => setAddPlaceOpen(!addPlaceOpen)}
               aria-haspopup="true"
-              aria-expanded={addPlaceOpen}
+              aria-expanded="false"
               type="button"
             >
               Add your Place
@@ -90,10 +130,10 @@ const Navbar: React.FC = () => {
               </svg>
             </button>
             <ul
-              className={`bg-white rounded shadow-lg absolute left-0 w-44 mt-2 z-30
+              className="
+                bg-white rounded shadow-lg absolute left-0 w-44 mt-2 z-30
                 hidden group-hover:block
-                ${addPlaceOpen ? 'block' : ''}
-              `}
+              "
             >
               <li>
                 <a href="#" className="block px-4 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-700">Log In</a>

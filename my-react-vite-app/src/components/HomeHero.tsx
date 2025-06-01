@@ -48,7 +48,7 @@ const HomeHero: React.FC = () => {
         >
           <input
             type="text"
-            placeholder={animatedPlaceholder ? `Enter destination: ${animatedPlaceholder}` : "Enter destination"}
+            placeholder={animatedPlaceholder}
             className="border border-gray-300 rounded px-4 py-2 w-full md:w-48 focus:outline-none focus:ring-2 focus:ring-blue-300"
             value={location}
             onChange={e => setLocation(e.target.value)}
